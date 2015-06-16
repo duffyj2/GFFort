@@ -1,0 +1,57 @@
+GFORTRAN module version '10' created from GFMod.f95
+MD5:76892e18778cfa9965c2905cdae543cc -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () ()
+() () () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'complexintegrate' 'numroutines' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 FUNCTION) (COMPLEX 8 0 0 0 COMPLEX ()) 3 0
+(4 5 6) () 2 () () () 0 0)
+7 'imx' 'numroutines' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL
+UNKNOWN 0 0 DIMENSION FUNCTION IMPLICIT_PURE ALWAYS_EXPLICIT) (REAL 8 0
+0 0 REAL ()) 8 0 (9) (2 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ())
+0 '1') (VARIABLE (INTEGER 4 0 0 0 INTEGER ()) 0 9 ()) (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1') (VARIABLE (INTEGER 4 0 0 0 INTEGER ())
+0 9 ())) 7 () () () 0 0)
+10 'inv' 'numroutines' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL
+UNKNOWN 0 0 DIMENSION FUNCTION ALWAYS_EXPLICIT) (COMPLEX 8 0 0 0 COMPLEX
+()) 11 0 (12) (2 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1')
+(FUNCTION (INTEGER 4 0 0 0 INTEGER ()) 0 13 (('' (VARIABLE (COMPLEX 8 0
+0 0 COMPLEX ()) 2 12 ((ARRAY (FULL 2 2 2))))) ('' (CONSTANT (INTEGER 4 0
+0 0 INTEGER ()) 0 '1')) ('' ())) '' 0 'size') (CONSTANT (INTEGER 4 0 0 0
+INTEGER ()) 0 '1') (FUNCTION (INTEGER 4 0 0 0 INTEGER ()) 0 13 (('' (
+VARIABLE (COMPLEX 8 0 0 0 COMPLEX ()) 2 12 ((ARRAY (FULL 2 2 2))))) (''
+(CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1')) ('' ())) '' 0 'size')) 10
+() () () 0 0)
+14 'numroutines' 'numroutines' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0
+0)
+4 'f' '' '' 3 ((PROCEDURE UNKNOWN-INTENT DUMMY-PROC UNKNOWN UNKNOWN 0 0
+EXTERNAL DUMMY FUNCTION) (COMPLEX 8 0 0 0 COMPLEX ()) 0 0 () () 4 () ()
+() 0 0)
+5 'lim1' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+6 'lim2' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+9 'n' '' '' 8 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+12 'm' '' '' 11 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DIMENSION DUMMY) (COMPLEX 8 0 0 0 COMPLEX ()) 0 0 () (2 0
+ASSUMED_SHAPE (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') ()) 0 () () () 0 0)
+13 'size' '(intrinsic)' '' 11 ((PROCEDURE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 FUNCTION) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 13
+() () () 0 0)
+)
+
+('complexintegrate' 0 2 'imx' 0 7 'inv' 0 10 'numroutines' 0 14)
