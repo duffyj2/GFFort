@@ -258,6 +258,7 @@ implicit none
   ! Integrates a complex function, uses the default tolerance
   ! Probably should include an optional parameter for the tolerance
   ! Also, doesn't return the error
+  ! Might be better as a subroutine
     complex(8) :: complexIntegrate
     complex(8), external :: f
     real(8), intent(in) :: lim1,lim2
@@ -277,6 +278,49 @@ implicit none
     call dqags (fIm, lim1, lim2, epsabs, epsrel, rIm, abserr, neval, ier, limit, lenw, last, iwork, work)
         
     complexIntegrate = cmplx(rRe,rIm,8)
+    
+    contains
+    
+    function fRe(x)
+      real(8) :: fRe
+      real(8), intent(in) ::  x
+      fRe = real( f(x) )
+    end function fRe
+    
+    function fIm(x)
+      real(8) :: fIm
+      real(8), intent(in) ::  x
+      fIm = aimag( f(x) )
+    end function fIm
+    
+  end function
+  
+  
+  function complexIntegrateInf(f,bound,inf)
+  use shared_data
+  ! Integrates a complex function over infinite ranges, uses the default tolerance
+  ! Probably should include an optional parameter for the tolerance
+  ! Also, doesn't return the error
+    complex(8) :: complexIntegrateInf
+    complex(8), external :: f
+    real(8), intent(in) :: bound
+    integer, intent(in) :: inf
+    ! Dummy
+    real(8) :: rRe, rIm
+    real(8) :: abserr, epsabs, epsrel
+    integer :: ier, last, neval
+    integer, parameter :: limit = 100
+    integer, parameter :: lenw = limit*4
+    integer, dimension(limit) :: iwork
+    real(8), dimension(lenw) :: work
+
+    epsabs = 0.0d0
+    epsrel = dtol
+    
+    call dqagi (fRe, bound, inf, epsabs, epsrel, rRe, abserr, neval, ier, limit, lenw, last, iwork, work)
+    call dqagi (fRe, bound, inf, epsabs, epsrel, rIm, abserr, neval, ier, limit, lenw, last, iwork, work)
+        
+    complexIntegrateInf = cmplx(rRe,rIm,8)
     
     contains
     

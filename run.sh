@@ -3,7 +3,7 @@
 
 # NMS/LAPACK compilation, this is my prefered code at the moment
 gfortran -c GFMod.f95
-gfortran main.f95 GFMod.o -O -L$HOME/lib -lnms -llapack -lslatec
+gfortran main.f95 GFMod.o -O -L$HOME/lib -llapack -lslatec
 
 # Including MKL, the fucking mess that it is
 # gfortran -c GFMod.f95

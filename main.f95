@@ -94,25 +94,32 @@ implicit none
   real(8) :: wf, w, w_dum
   real(8) :: y
   
+  real(8) :: bound, res
+  real(8) :: abserr,epsabs,epsrel
+  integer :: inf
+  integer :: ier, last, neval
+  integer, parameter :: limit = 100
+  integer, parameter :: lenw = limit*4
+  integer, dimension(limit) :: iwork
+  real(8), dimension(lenw) :: work
+
   m = 3
   n = 3
   s = 1
  
-  E = (1.2d0,eta)
-
-
   Vup = -1.2d0
   Vdown = -Vup
   wf = 0.0d0
   w = 1.0d0
-  y = 1.0d0
   
-!   print *, spin_sus_int12(w)  
-!   spin_sus_int3,wf-w,wf
+  bound = 0.0d0
+  inf = 1
+
   print *, complexIntegrate(spin_sus_int3,wf-w,wf)
+  print *, complexIntegrateInf(spin_sus_int12,bound,inf)
   
   contains
-  
+    
     function spin_sus_int12(w)
       complex(8) :: spin_sus_int12
       real(8), intent(in) :: w
