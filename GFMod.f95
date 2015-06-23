@@ -10,8 +10,10 @@ implicit none
   real(8), parameter :: hbar = 1.0
   ! Material parameters
   real(8), parameter :: t = -1.0d0
-  real(8), parameter :: eps_imp = 0.0
-  real(8), parameter :: tau = -1.0
+  real(8), parameter :: eps_imp = 0.0d0
+  real(8), parameter :: tau = -1.0d0
+  real(8), parameter :: EF = 0.0d0
+  real(8), parameter :: wf = EF
   ! Accuracy parameters
   real(8), parameter :: eta = 1.0d-4
   real(8), parameter :: dtol = 1.0d-4
@@ -36,7 +38,7 @@ implicit none
     lim1 = -pi/2.0d0
     lim2 = pi/2.0d0
     
-    gBulk_kZ = complexIntegrate(gbulk_kz_int,lim1,lim2)
+    gBulk_kZ = zqags(gbulk_kz_int,lim1,lim2)
     
     contains
 
@@ -253,13 +255,13 @@ implicit none
 
   contains
 
-  function complexIntegrate(f,lim1,lim2)
+  function zqags(f,lim1,lim2)
   use shared_data
-  ! Integrates a complex function, uses the default tolerance
+  ! Integrates a complex function, using the qags routine from SLATEC
   ! Probably should include an optional parameter for the tolerance
   ! Also, doesn't return the error
   ! Might be better as a subroutine
-    complex(8) :: complexIntegrate
+    complex(8) :: zqags
     complex(8), external :: f
     real(8), intent(in) :: lim1,lim2
     ! Dummy
@@ -277,7 +279,7 @@ implicit none
     call dqags (fRe, lim1, lim2, epsabs, epsrel, rRe, abserr, neval, ier, limit, lenw, last, iwork, work)
     call dqags (fIm, lim1, lim2, epsabs, epsrel, rIm, abserr, neval, ier, limit, lenw, last, iwork, work)
         
-    complexIntegrate = cmplx(rRe,rIm,8)
+    zqags = cmplx(rRe,rIm,8)
     
     contains
     
@@ -296,12 +298,12 @@ implicit none
   end function
   
   
-  function complexIntegrateInf(f,bound,inf)
+  function zqagi(f,bound,inf)
   use shared_data
-  ! Integrates a complex function over infinite ranges, uses the default tolerance
+  ! Integrates a complex function over infinite ranges, using the QAGI routine from SLATEC
   ! Probably should include an optional parameter for the tolerance
   ! Also, doesn't return the error
-    complex(8) :: complexIntegrateInf
+    complex(8) :: zqagi
     complex(8), external :: f
     real(8), intent(in) :: bound
     integer, intent(in) :: inf
@@ -320,7 +322,7 @@ implicit none
     call dqagi (fRe, bound, inf, epsabs, epsrel, rRe, abserr, neval, ier, limit, lenw, last, iwork, work)
     call dqagi (fRe, bound, inf, epsabs, epsrel, rIm, abserr, neval, ier, limit, lenw, last, iwork, work)
         
-    complexIntegrateInf = cmplx(rRe,rIm,8)
+    zqagi = cmplx(rRe,rIm,8)
     
     contains
     
